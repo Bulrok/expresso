@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Expresso: an espresso cup whose steam is an equals sign. -->
+  <ellipse cx="60" cy="110" rx="50" ry="9" fill="#d8c3a5"/>
+  <ellipse cx="60" cy="107" rx="40" ry="5.5" fill="#efe3d0"/>
+  <path d="M84 62 h7 a15 15 0 0 1 0 30 h-9" fill="none" stroke="#8a5a3c" stroke-width="10" stroke-linecap="round"/>
+  <path d="M84 62 h7 a15 15 0 0 1 0 30 h-9" fill="none" stroke="#f6efe4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M22 54 h76 l-7 40 a14 14 0 0 1 -14 11 h-34 a14 14 0 0 1 -14 -11 z" fill="#f6efe4" stroke="#8a5a3c" stroke-width="2.5" stroke-linejoin="round"/>
+  <ellipse cx="60" cy="56" rx="37" ry="7" fill="#2b1d16"/>
+  <ellipse cx="60" cy="55" rx="31" ry="4.5" fill="#c08a52"/>
+  <ellipse cx="54" cy="54.5" rx="12" ry="2" fill="#e0b47c" opacity="0.8"/>
+  <rect x="40" y="18" width="40" height="8" rx="4" fill="#8a5a3c"/>
+  <rect x="40" y="33" width="40" height="8" rx="4" fill="#8a5a3c"/>
+</svg>

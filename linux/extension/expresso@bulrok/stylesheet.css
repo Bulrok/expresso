@@ -1,0 +1,12 @@
+/* Same palette as windows/src/win/overlay.rs: espresso body, crema text. */
+.expresso-bubble {
+    background-color: rgba(43, 29, 22, 0.94);
+    color: #f3d9b1;
+    border: 1px solid rgba(138, 90, 60, 0.9);
+    border-radius: 9px;
+    padding: 2px 8px;
+    font-family: monospace;
+    font-size: 11pt;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}

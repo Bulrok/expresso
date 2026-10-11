@@ -1,0 +1,36 @@
+[package]
+name = "expresso"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "A shot of eval, anywhere: inline math results next to the text caret"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/Bulrok/expresso"
+readme = "../README.md"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "expresso"
+path = "src/main.rs"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_System_LibraryLoader",
+    "Win32_UI_HiDpi",
+    "Win32_UI_WindowsAndMessaging",
+] }
+
+[dev-dependencies]
+serde_json = "1"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"

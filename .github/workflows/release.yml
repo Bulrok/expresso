@@ -1,0 +1,55 @@
+name: Release
+
+# Push a tag like v0.2.0 (matching windows/Cargo.toml and metadata.json) to
+# build both platforms and publish a GitHub release with the artifacts.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y gjs zip
+      - run: make test-linux
+      - run: make dist-linux
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: dist/expresso@bulrok.shell-extension.zip
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/check-version.sh
+      - run: cargo test
+        working-directory: windows
+      - run: cargo build --release
+        working-directory: windows
+      - run: Copy-Item windows/target/release/expresso.exe expresso-windows-x86_64.exe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: expresso-windows-x86_64.exe
+
+  publish:
+    needs: [linux, windows]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notes=$(awk -v v="${GITHUB_REF_NAME#v}" '$0 ~ "^## \\[?"v {f=1; next} /^## / && f {exit} f' CHANGELOG.md)
+          gh release create "$GITHUB_REF_NAME" artifacts/* \
+            --title "Expresso $GITHUB_REF_NAME" --notes "${notes:-See CHANGELOG.md}"

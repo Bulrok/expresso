@@ -1,0 +1,11 @@
+{
+  "uuid": "expresso@bulrok",
+  "name": "Expresso",
+  "description": "A shot of eval, anywhere. Type math in any text field and the result appears in a small bubble right of the caret: \"rent 1850*12\" shows \"= 22,200\". Reads text through the input-method protocol (text-input-v3), so it works in GTK, Firefox, Qt and other Wayland apps without accessibility hooks.",
+  "url": "https://github.com/Bulrok/expresso",
+  "shell-version": [
+    "50"
+  ],
+  "version": 1,
+  "version-name": "0.1.0"
+}

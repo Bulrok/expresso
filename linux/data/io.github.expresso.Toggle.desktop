@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Expresso
+GenericName=Inline calculator
+Comment=A shot of eval, anywhere. Toggles the math bubble that appears next to the text caret
+Exec=expresso-toggle
+Icon=expresso
+Terminal=false
+Categories=Utility;Calculator;
+Keywords=calc;math;calculator;inline;eval;expression;toggle;

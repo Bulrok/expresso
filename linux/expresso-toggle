@@ -1,0 +1,13 @@
+#!/bin/bash
+# Turn the Expresso GNOME Shell extension on/off (used by the app-finder launcher).
+UUID=expresso@bulrok
+note() { notify-send -a Expresso -i expresso -e "$1" "${2:-}"; }
+state=$(gnome-extensions info "$UUID" 2>/dev/null | sed -n 's/^ *State: //p')
+case "$state" in
+    ACTIVE)
+        gnome-extensions disable "$UUID" && note "Expresso off" ;;
+    "")
+        note "Expresso not loaded yet" "GNOME Shell picks up new extensions at login. Log out and back in once." ;;
+    *)
+        gnome-extensions enable "$UUID" && note "Expresso on" "Type math in any text field." ;;
+esac
